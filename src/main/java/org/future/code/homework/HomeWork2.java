@@ -40,11 +40,19 @@ public class HomeWork2 {
 
     public static void validateLogin(String login) {
         //Место для Вашего кода из пункта 2
+             if ((login.length()>20)||!((login.matches("^.*(?=.*[A-Za-z])(?=.*[0-9])(?=.*_)[a-zA-Z_].*")))) {
+            throw new LoginValidationException();
+        }
+    }
     }
 
     public static Boolean isLoginValid(String login) {
         //Место для Вашего кода из пункта 3
-        return false;
+        try {
+            validateLogin(login);
+            return true;
+        } catch (LoginValidationException e) {
+            return false;
     }
 
     /*
