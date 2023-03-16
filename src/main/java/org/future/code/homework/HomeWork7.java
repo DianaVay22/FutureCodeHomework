@@ -34,6 +34,10 @@ public class HomeWork7 {
      */
     public static List<String> methodTwo(List<String> names) {
         // Твой код здесь
+        List<String> listOne = names.stream()
+                .filter(s -> s.contains("King"))
+                .collect(Collectors.toList());
+
         return Collections.emptyList();
     }
 
@@ -42,6 +46,10 @@ public class HomeWork7 {
      */
     public static List<String> methodThree(List<String> names) {
         // Твой код здесь
+        List<String> listTwo = names.stream()
+                .map(s->s.substring(s.indexOf(" ")+1))
+                .distinct()
+                .collect(Collectors.toList());
         return Collections.emptyList();
     }
 
@@ -50,6 +58,11 @@ public class HomeWork7 {
      */
     public static List<String> methodFour(List<String> names) {
         // Твой код здесь
+        List<String> listThree = names.stream()
+                .map(s->s.substring(+0, s.indexOf(" ")))
+                .filter(s->s.startsWith("L"))
+                .distinct()
+                .collect(Collectors.toList());
         return Collections.emptyList();
     }
 
@@ -58,6 +71,12 @@ public class HomeWork7 {
      */
     public static Integer methodFive(List<String> names) {
         // Твой код здесь
+        List<String> listFour = names.stream()
+                .map(s->s.substring(s.indexOf(" ")+1))
+                .filter(s->s.startsWith("W"))
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
         return 0;
     }
 
@@ -67,6 +86,11 @@ public class HomeWork7 {
      */
     public static Integer methodSix(List<String> names) {
         // Твой код здесь
+         long counterFive = names.stream()
+                .map(s->s.substring(+0, s.indexOf(" ")))
+                .filter(s->s.length()>6)
+                .distinct()
+                .count();
         return 0;
     }
 
@@ -75,8 +99,19 @@ public class HomeWork7 {
      * например "David Z.". Список должен быть отсортирован по алфавиту и состоять только из уникальных значений
      */
     public static List<String> methodSeven(List<String> names) {
-        // Твой код здесь
-        return Collections.emptyList();
+        // Твой код здесь 
+        map(s -> s.substring(0, s.indexOf(" ")-1))
+                .filter(s -> s.length()>5)
+                .distinct()
+                .count();
+        long surnameC = names.stream()
+                .map(s -> s.substring(s.indexOf(" ")))
+                .filter(s->s.length()>5)
+                .distinct()
+                .count();
+        return (int) (surnameC+namesC);
+       
+       
     }
 
     public static void main(String[] args) {
