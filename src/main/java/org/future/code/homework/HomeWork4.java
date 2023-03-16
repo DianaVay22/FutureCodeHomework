@@ -39,11 +39,28 @@ public class HomeWork4 {
      */
 
     public static List<String> correctedList(List<String> stringList) {
-        // Место для Вашего кода задания №1
+        
+        ArrayList<String> correctedList = new ArrayList<>();
+        for (int i = 0; i < stringList.size(); i++) {
+            if (!stringList.get(i).matches(".*[A-Z]+.*")) {
+                correctedList.add(stringList.get(i));
+            }
+        }
+        
+   
         return Collections.emptyList();
     }
     public static HashMap<String, Integer> magSort(HashMap<String, Integer> shopCart) {
-        // Место для Вашего кода задания №2
+         Set<String> keysToRemove = new HashSet<>();
+        for (Map.Entry<String, Integer> ent : shopCart.entrySet()) {
+            Integer temp = ent.getValue();
+            for (int i = 0; i < shopCart.size() ; i++) {
+                if (temp>300) {
+                    String tmp = ent.getKey();
+                    keysToRemove.add(tmp);
+                }
+            }
+        }
         return shopCart;
     }
 
